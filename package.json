@@ -1,35 +1,41 @@
 {
   "name": "ready-state",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "document readyState Promise",
+  "umd:main": "dist/ready-state.umd.js",
+  "module": "dist/ready-state.es.js",
   "main": "dist/ready-state.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d dist"
+    "test": "ava --verbose",
+    "build": "microbundle build ready-state.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/soenkekluth/ready-state.git"
   },
   "keywords": [
+    "browser",
+    "readystate",
+    "readystatechange",
+    "change",
+    "window",
     "document",
+    "dom",
+    "onready",
     "ready",
     "promise",
     "window",
+    "complete",
+    "wait",
+    "domcontentloaded",
+    "check",
+    "onload",
     "load"
   ],
   "devDependencies": {
-    "babel-cli": "6.18.0",
-    "babel-core": "6.18.2",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-plugin-transform-class-constructor-call": "6.18.0",
-    "babel-plugin-transform-class-properties": "6.19.0",
-    "babel-plugin-transform-es2015-classes": "6.18.0",
-    "babel-plugin-transform-proto-to-assign": "6.9.0",
-    "babel-preset-es2015": "6.18.0",
-    "mocha": "3.2.0",
-    "npm-run-all": "3.1.1",
-    "should": "11.1.1"
+    "ava": "^0.25.0",
+    "jsdom": "^11.6.2",
+    "microbundle": "^0.4.3"
   },
   "author": "Sönke Kluth <soenke.kluth@gmail.com> (http://soenkekluth.com/)",
   "license": "MIT",
