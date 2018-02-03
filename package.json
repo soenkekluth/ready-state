@@ -1,6 +1,6 @@
 {
   "name": "ready-state",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "document readyState Promise",
   "umd:main": "dist/ready-state.umd.js",
   "module": "dist/ready-state.es.js",
