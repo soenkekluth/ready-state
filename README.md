@@ -54,7 +54,7 @@ console.log(readyState.state);
 
 
 console.log(readyState.ready ? 'I am ready' : 'still waiting');
-
+```
 
 ## Related
 
