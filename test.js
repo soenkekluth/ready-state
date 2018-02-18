@@ -6,7 +6,7 @@ test.cb('all document states should pass', t => {
   JSDOM.fromFile('test.html', {
     pretendToBeVisual: true,
     contentType: 'text/html',
-    userAgent: 'Mellblomenator/9000',
+    userAgent: 'readystate/9000',
   }).then(dom => {
     global.window = dom.window;
     global.document = dom.window.document;
@@ -15,37 +15,36 @@ test.cb('all document states should pass', t => {
 
     Promise.all([
       readyState.loading.then(state => {
-        // console.log('loading');
+        t.log('readyState.loading');
         t.is(state, 'loading');
       }),
       readyState.interactive.then(state => {
-        // console.log('interactive');
+        t.log('readyState.interactive');
         t.is(state, 'interactive');
         t.lof;
       }),
       readyState.load.then(state => {
-        // console.log('load');
+        t.log('readyState.load');
         t.is(state, 'load');
       }),
       readyState.window.then(state => {
-        // console.log('load');
+        t.log('readyState.window (readyState.load)');
         t.is(state, 'load');
       }),
       readyState.complete.then(state => {
-        // console.log('complete');
+        t.log('readyState.complete');
         t.is(state, 'complete');
       }),
       readyState.domready.then(state => {
-        // console.log('domready');
+        t.log('readyState.domready');
         t.is(state, 'domready');
       }),
       readyState.dom.then(state => {
-        // console.log('domready');
+        t.log('readyState.dom (readyState.domready)');
         t.is(state, 'domready');
       }),
     ]).then(() => {
       t.end();
     });
-    // console.log(dom.serialize());
   });
 });

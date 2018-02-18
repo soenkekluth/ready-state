@@ -1,13 +1,15 @@
 {
   "name": "ready-state",
-  "version": "2.0.1",
-  "description": "document readyState Promise",
+  "version": "2.0.5",
+  "description": "Get / Check the document readyState by Promise, when the DOM and Window is loaded",
   "umd:main": "dist/ready-state.umd.js",
   "module": "dist/ready-state.es.js",
   "main": "dist/ready-state.js",
   "scripts": {
     "test": "ava --verbose",
-    "build": "microbundle build ready-state.js"
+    "build": "microbundle build ready-state.js",
+    "lint": "yarn eslint './*.js'",
+    "lint:fix": "yarn lint --fix"
   },
   "repository": {
     "type": "git",

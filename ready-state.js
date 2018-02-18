@@ -1,5 +1,3 @@
-'use strict';
-
 const options = {
   capture: true,
   once: true,
@@ -27,7 +25,7 @@ export const loading = () =>
       () => {
         document.readyState === 'loading' && resolve('loading');
       },
-      options
+      options,
     );
   });
 
@@ -39,7 +37,7 @@ export const interactive = () =>
       () => {
         document.readyState === 'interactive' && resolve('interactive');
       },
-      options
+      options,
     );
   });
 
@@ -51,7 +49,7 @@ export const complete = () =>
       () => {
         document.readyState === 'complete' && resolve('complete');
       },
-      options
+      options,
     );
   });
 
@@ -64,7 +62,7 @@ export const domready = () =>
       () => {
         resolve('domready');
       },
-      options
+      options,
     );
   });
 
@@ -76,64 +74,59 @@ export const load = () =>
       () => {
         resolve('load');
       },
-      options
+      options,
     );
   });
 
-var readyState = {};
+const readyState = {};
 
-Object.defineProperty(readyState, 'state', {
-  get: function() {
-    return document.readyState;
+Object.defineProperties(readyState, {
+  state: {
+    get: function() {
+      return document.readyState;
+    },
+  },
+
+  loading: {
+    get: function() {
+      return loading();
+    },
+  },
+  interactive: {
+    get: function() {
+      return interactive();
+    },
+  },
+  complete: {
+    get: function() {
+      return complete();
+    },
+  },
+  window: {
+    get: function() {
+      return load();
+    },
+  },
+  load: {
+    get: function() {
+      return load();
+    },
+  },
+  domready: {
+    get: function() {
+      return domready();
+    },
+  },
+  dom: {
+    get: function() {
+      return domready();
+    },
+  },
+  ready: {
+    get: function() {
+      return isReady();
+    },
   },
 });
-
-Object.defineProperty(readyState, 'loading', {
-  get: function() {
-    return loading();
-  },
-});
-
-Object.defineProperty(readyState, 'interactive', {
-  get: function() {
-    return interactive();
-  },
-});
-
-Object.defineProperty(readyState, 'complete', {
-  get: function() {
-    return complete();
-  },
-});
-Object.defineProperty(readyState, 'window', {
-  get: function() {
-    return load();
-  },
-});
-
-Object.defineProperty(readyState, 'load', {
-  get: function() {
-    return load();
-  },
-});
-
-Object.defineProperty(readyState, 'domready', {
-  get: function() {
-    return domready();
-  },
-});
-
-Object.defineProperty(readyState, 'dom', {
-  get: function() {
-    return domready();
-  },
-});
-
-Object.defineProperty(readyState, 'ready', {
-  get: function() {
-    return isReady();
-  },
-});
-
 
 export default readyState;

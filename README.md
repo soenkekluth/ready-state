@@ -6,6 +6,8 @@
 
 All checks also work even after the DOM was loaded.
 
+## Dependencies
+none!
 
 ## Install
 
@@ -55,6 +57,21 @@ console.log(readyState.state);
 
 console.log(readyState.ready ? 'I am ready' : 'still waiting');
 ```
+
+## Test result
+```js
+  ✔ all document states should pass
+    ℹ readyState.loading
+    ℹ readyState.interactive
+    ℹ readyState.load
+    ℹ readyState.window (readyState.load)
+    ℹ readyState.complete
+    ℹ readyState.domready
+    ℹ readyState.dom (readyState.domready)
+
+  1 test passed
+```
+
 
 ## Related
 
